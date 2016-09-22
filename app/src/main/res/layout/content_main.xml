@@ -28,14 +28,14 @@
         android:layout_height="wrap_content"
         android:id="@+id/frameLayout"
         android:background="#848484"
-        android:layout_above="@+id/editTextName"
+        android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="58dp">
+        android:layout_marginTop="82dp">
 
         <ImageButton
             android:layout_width="68dp"
             android:layout_height="68dp"
-            android:id="@+id/imageButton"
+            android:id="@+id/imageProfileBtn"
             android:contentDescription="description"
             android:src="@drawable/ic_photo_camera_white_48px"
             android:background="@null"
@@ -51,11 +51,11 @@
         android:hint="Nombre"
         android:ems="10"
         android:id="@+id/editTextName"
+        android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/frameLayout"
-        android:layout_above="@+id/editTextPhone"
-        android:layout_toLeftOf="@+id/frameLayout" />
+        android:layout_toLeftOf="@+id/frameLayout"
+        android:layout_toStartOf="@+id/frameLayout" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -67,9 +67,8 @@
         android:layout_alignTop="@+id/editTextName"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/frameLayout"
-        android:layout_alignLeft="@+id/frameLayout"
-        android:layout_alignStart="@+id/frameLayout" />
+        android:layout_toEndOf="@+id/editTextName"
+        android:layout_toRightOf="@+id/editTextName" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -78,11 +77,9 @@
         android:ems="10"
         android:hint="Teléfono"
         android:id="@+id/editTextPhone"
-        android:layout_above="@+id/editTextAddress"
+        android:layout_below="@+id/editTextName"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_toLeftOf="@+id/editTextCellPhone"
-        android:layout_toStartOf="@+id/editTextCellPhone" />
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -104,25 +101,23 @@
         android:ems="10"
         android:id="@+id/editTextAddress"
         android:hint="Dirección"
+        android:layout_below="@+id/editTextPhone"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/editText"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignRight="@+id/editTextCellPhone"
+        android:layout_alignEnd="@+id/editTextCellPhone" />
 
-    <EditText
+    <Button
+        style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:ems="10"
-        android:hint="Servicios que ofrece"
-        android:id="@+id/editText"
-        android:layout_marginBottom="49dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/editTextAddress"
-        android:layout_alignEnd="@+id/editTextAddress" />
+        android:text="Siguiente"
+        android:id="@+id/btnNextMainActivity"
+        android:onClick="secondActivityInformation"
+        android:layout_below="@+id/editTextAddress"
+        android:layout_alignRight="@+id/editTextCellPhone"
+        android:layout_alignEnd="@+id/editTextCellPhone"
+        android:layout_marginTop="31dp" />
 
 
 </RelativeLayout>

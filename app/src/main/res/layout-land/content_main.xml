@@ -101,18 +101,17 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-    <EditText
+    <Button
+        style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:ems="10"
-        android:hint="Servicios que ofrece"
-        android:id="@+id/editText"
+        android:text="Siguiente"
+        android:id="@+id/btnNextMainActivity"
+        android:onClick="secondActivityInformation"
         android:layout_below="@+id/editTextAddress"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignRight="@+id/editTextAddress"
+        android:layout_alignEnd="@+id/editTextAddress"
+        android:layout_marginTop="28dp" />
 
 
 </RelativeLayout>
