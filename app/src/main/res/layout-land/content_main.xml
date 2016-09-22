@@ -18,30 +18,30 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Datos Personales"
         android:id="@+id/textView"
-        android:textSize="20sp"
+        android:typeface="serif"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:typeface="serif" />
+        android:textSize="20sp" />
 
     <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/frameLayout"
         android:background="#848484"
-        android:layout_above="@+id/editTextName"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="58dp">
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <ImageButton
-            android:layout_width="68dp"
-            android:layout_height="68dp"
+            android:layout_width="84dp"
+            android:layout_height="84dp"
             android:id="@+id/imageButton"
             android:contentDescription="description"
             android:src="@drawable/ic_photo_camera_white_48px"
             android:background="@null"
             android:layout_alignBottom="@+id/frameLayout"
             android:layout_centerHorizontal="true"
-            android:layout_gravity="center_horizontal|bottom" />
+            android:layout_gravity="right|center_vertical" />
     </FrameLayout>
 
     <EditText
@@ -51,11 +51,9 @@
         android:hint="Nombre"
         android:ems="10"
         android:id="@+id/editTextName"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/frameLayout"
-        android:layout_above="@+id/editTextPhone"
-        android:layout_toLeftOf="@+id/frameLayout" />
+        android:layout_below="@+id/textView"
+        android:layout_toLeftOf="@+id/editTextLastName"
+        android:layout_toStartOf="@+id/editTextLastName" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -66,10 +64,7 @@
         android:id="@+id/editTextLastName"
         android:layout_alignTop="@+id/editTextName"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/frameLayout"
-        android:layout_alignLeft="@+id/frameLayout"
-        android:layout_alignStart="@+id/frameLayout" />
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -78,9 +73,7 @@
         android:ems="10"
         android:hint="Teléfono"
         android:id="@+id/editTextPhone"
-        android:layout_above="@+id/editTextAddress"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_below="@+id/editTextName"
         android:layout_toLeftOf="@+id/editTextCellPhone"
         android:layout_toStartOf="@+id/editTextCellPhone" />
 
@@ -92,10 +85,8 @@
         android:hint="Celular"
         android:id="@+id/editTextCellPhone"
         android:layout_alignTop="@+id/editTextPhone"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/frameLayout"
-        android:layout_toRightOf="@+id/frameLayout" />
+        android:layout_alignRight="@+id/editTextLastName"
+        android:layout_alignEnd="@+id/editTextLastName" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -104,9 +95,9 @@
         android:ems="10"
         android:id="@+id/editTextAddress"
         android:hint="Dirección"
+        android:layout_below="@+id/editTextPhone"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/editText"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -117,12 +108,11 @@
         android:ems="10"
         android:hint="Servicios que ofrece"
         android:id="@+id/editText"
-        android:layout_marginBottom="49dp"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/editTextAddress"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/editTextAddress"
-        android:layout_alignEnd="@+id/editTextAddress" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 
 </RelativeLayout>
