@@ -23,26 +23,6 @@
         android:layout_centerHorizontal="true"
         android:textSize="20sp" />
 
-    <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/frameLayout"
-        android:background="#848484"
-        android:layout_below="@+id/textView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
-
-        <ImageButton
-            android:layout_width="84dp"
-            android:layout_height="84dp"
-            android:id="@+id/imageButton"
-            android:contentDescription="description"
-            android:src="@drawable/ic_photo_camera_white_48px"
-            android:background="@null"
-            android:layout_alignBottom="@+id/frameLayout"
-            android:layout_centerHorizontal="true"
-            android:layout_gravity="right|center_vertical" />
-    </FrameLayout>
 
     <EditText
         android:layout_width="wrap_content"
@@ -113,5 +93,14 @@
         android:layout_alignEnd="@+id/editTextAddress"
         android:layout_marginTop="28dp" />
 
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageProfileBtn"
+        android:src="@drawable/photo"
+        android:onClick="takeImage"
+        android:layout_alignTop="@+id/editTextName"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

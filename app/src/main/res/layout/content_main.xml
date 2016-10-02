@@ -8,7 +8,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.no_andrey.oficitico.MainActivity"
-    tools:showIn="@layout/activity_main">
+    tools:showIn="@layout/activity_main"
+    android:clickable="false">
 
 
 
@@ -23,26 +24,7 @@
         android:layout_centerHorizontal="true"
         android:typeface="serif" />
 
-    <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/frameLayout"
-        android:background="#848484"
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="82dp">
 
-        <ImageButton
-            android:layout_width="68dp"
-            android:layout_height="68dp"
-            android:id="@+id/imageProfileBtn"
-            android:contentDescription="description"
-            android:src="@drawable/ic_photo_camera_white_48px"
-            android:background="@null"
-            android:layout_alignBottom="@+id/frameLayout"
-            android:layout_centerHorizontal="true"
-            android:layout_gravity="center_horizontal|bottom" />
-    </FrameLayout>
 
     <EditText
         android:layout_width="wrap_content"
@@ -53,9 +35,7 @@
         android:id="@+id/editTextName"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_toLeftOf="@+id/frameLayout"
-        android:layout_toStartOf="@+id/frameLayout" />
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -79,7 +59,9 @@
         android:id="@+id/editTextPhone"
         android:layout_below="@+id/editTextName"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/editTextCellPhone"
+        android:layout_toStartOf="@+id/editTextCellPhone" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -91,8 +73,8 @@
         android:layout_alignTop="@+id/editTextPhone"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/frameLayout"
-        android:layout_toRightOf="@+id/frameLayout" />
+        android:layout_toEndOf="@+id/imageProfileBtn"
+        android:layout_toRightOf="@+id/imageProfileBtn" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -118,6 +100,16 @@
         android:layout_alignRight="@+id/editTextCellPhone"
         android:layout_alignEnd="@+id/editTextCellPhone"
         android:layout_marginTop="31dp" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageProfileBtn"
+        android:src="@drawable/photo"
+        android:onClick="takeImage"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="45dp" />
 
 
 </RelativeLayout>

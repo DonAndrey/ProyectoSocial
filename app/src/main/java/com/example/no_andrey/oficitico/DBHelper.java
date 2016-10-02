@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by No-Andrey on 22/9/2016.
@@ -22,7 +24,8 @@ public class DBHelper extends SQLiteOpenHelper
     public static final String OFICITICO_COLUMN_PHONE = "phone";
     public static final String OFICITICO_COLUMN_CELLPHONE = "cellphone";
     public static final String OFICITICO_COLUMN_ADDRESS = "address";
-    public static final String OFICITICO_COLUMN_WORK_ACTIVITIES = "work_activities";
+    public static final String OFICITICO_COLUMN_WORK_ACTIVITIES = "services";
+    public static final String OFICITICO_COLUMN_IMAGE_PATH = "image_path";
 
 
     public DBHelper(Context context)
@@ -34,8 +37,8 @@ public class DBHelper extends SQLiteOpenHelper
     public void onCreate(SQLiteDatabase db)
     {
         db.execSQL(
-                "create table contacts " +
-                        "(id integer primary key ,name text, last_name text,phone text)"
+                "create table information " +
+                        "(id integer primary key ,name text, last_name text,phone text, cellphone text, address text, services text, image_path text)"
         );
     }
 
@@ -46,8 +49,9 @@ public class DBHelper extends SQLiteOpenHelper
         onCreate(db);
     }
 
-    public boolean insertPersonalInformation (String name, String last_name, String phone, String cellphone, String address)
+    public long insertPersonalInformation (String name, String last_name, String phone, String cellphone, String address, String image_path)
     {
+        long row = -1;
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
@@ -57,14 +61,17 @@ public class DBHelper extends SQLiteOpenHelper
         contentValues.put("phone", phone);
         contentValues.put("cellphone", cellphone);
         contentValues.put("address", address);
+        contentValues.put("image_path", image_path);
+        contentValues.put("services", "");
 
 
-        db.insert("information", null,contentValues);
+        row = db.insert("information", null,contentValues);
+        db.close();
 
-        return true;
+        return row;
     }
 
-    public Cursor getData(int id)
+    public Cursor getPersonData(int id)
     {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -73,18 +80,24 @@ public class DBHelper extends SQLiteOpenHelper
         return res;
     }
 
-    public boolean updatePerson(Integer id, String name, String last_name, String phone)
+    public int updatePersonData(Long id, Map<String, String> values)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
+        int rows;
 
-        contentValues.put("name", name);
-        contentValues.put("last_name", last_name);
-        contentValues.put("phone", phone);
+        for (Map.Entry<String, String> entry: values.entrySet()) {
+            contentValues.put(entry.getKey(), entry.getValue());
+        }
 
-        db.update("information", contentValues, "id = ?", new String[]{Integer.toString(id)});
+/**
+        contentValues.put("services", "hola");
+        //contentValues.put("last_name", last_name);
+        //contentValues.put("phone", phone);
+**/
+        rows = db.update("information", contentValues, "id = ?", new String[]{Long.toString(id)});
 
-        return true;
+        return rows;
     }
 
     public Integer deletePerson(Integer id)

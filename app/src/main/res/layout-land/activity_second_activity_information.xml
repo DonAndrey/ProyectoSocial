@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="¿Qué querés ofrecer?"
+        android:text="¿Qué servicios querés ofrecer?"
         android:id="@+id/textView2"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -25,24 +25,23 @@
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
         android:ems="10"
-        android:id="@+id/editText"
+        android:id="@+id/editTextServices"
         android:hint="Escribí los servicios que ofrecés"
         android:layout_centerVertical="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Siguiente"
-        android:id="@+id/button3"
-        android:layout_marginRight="25dp"
-        android:layout_marginEnd="25dp"
+        android:id="@+id/btnNextSecondActivityInformation"
+        android:onClick="thirdActivityInformation"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/editText"
-        android:layout_alignEnd="@+id/editText" />
+        android:layout_alignRight="@+id/editTextServices"
+        android:layout_alignEnd="@+id/editTextServices" />
 
 </RelativeLayout>
