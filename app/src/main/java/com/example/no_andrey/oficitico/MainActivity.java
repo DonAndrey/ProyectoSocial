@@ -174,12 +174,22 @@ public class MainActivity extends AppCompatActivity {
 
         if (mCurrentPhotoPath != null)
         {
-             BitmapFactory.Options bmOptions = new BitmapFactory.Options();
-             bmOptions.inJustDecodeBounds = true;
+            int targetW = profileImageView.getWidth();
+            int targetH = profileImageView.getHeight();
 
-             int scaleFactor = 16; //Número a conveniencia
-             bmOptions.inSampleSize = scaleFactor;
-             bmOptions.inJustDecodeBounds = false;
+            BitmapFactory.Options bmOptions = new BitmapFactory.Options();
+             bmOptions.inJustDecodeBounds = true;
+            BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
+            int photoW = bmOptions.outWidth;
+            int photoH = bmOptions.outHeight;
+
+            // Determine how much to scale down the image
+            int scaleFactor = Math.min(photoW/targetW, photoH/targetH);
+            //TODO: Crear un algoritmo para calcular el factor de escala de acuerdo al tamaño de la foto
+            // Decode the image file into a Bitmap sized to fill the View
+            bmOptions.inJustDecodeBounds = false;
+            bmOptions.inSampleSize = scaleFactor;
+
 
             bitmap =  BitmapFactory.decodeFile(mCurrentPhotoPath, bmOptions);
         }
