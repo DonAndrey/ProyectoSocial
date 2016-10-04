@@ -53,7 +53,8 @@ public class MainActivity extends AppCompatActivity {
     private String mCurrentPhotoPath;
     private SharedPreferences sh;
 
-
+//TODO: Resolver el problema de mantener el contexto en landscape y portrait
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -161,9 +162,10 @@ public class MainActivity extends AppCompatActivity {
 
         mImageCaptureUri = data.getData();
         mCurrentPhotoPath = getRealPathFromURI(mImageCaptureUri);
-        rotateImage(getImageBitmap());
+        rotateImage(BitmapFactory.decodeFile(mCurrentPhotoPath));
     }
 
+    /**
     private Bitmap getImageBitmap()
     {
 
@@ -185,7 +187,7 @@ public class MainActivity extends AppCompatActivity {
 
             // Determine how much to scale down the image
             int scaleFactor = Math.min(photoW/targetW, photoH/targetH);
-            //TODO: Crear un algoritmo para calcular el factor de escala de acuerdo al tamaño de la foto
+
             // Decode the image file into a Bitmap sized to fill the View
             bmOptions.inJustDecodeBounds = false;
             bmOptions.inSampleSize = scaleFactor;
@@ -197,6 +199,10 @@ public class MainActivity extends AppCompatActivity {
 
         return bitmap;
     }
+
+     **/
+
+
 
     private void rotateImage(Bitmap bitmap)
     {
